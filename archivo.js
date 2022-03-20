@@ -153,6 +153,6 @@ function iniciar()
       function bloquear(ev)
       {
         ev.preventDefault();
-        alert("Esta prohibida la acción escribir");
+        alert("Esta prohibida la acción escribir.");
       }
 }
