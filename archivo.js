@@ -139,15 +139,15 @@ function iniciar()
 
     validarLiquidacion.onpaste= function(e) {
         e.preventDefault();
-        alert("Esta prohibida la acción pegar");
+        alert("Esta prohibida la acción pegar.");
       };
       valorResultado.onpaste= function(e) {
         e.preventDefault();
-        alert("Esta prohibida la acción pegar");
+        alert("Esta prohibida la acción pegar.");
       };
       diasMora.onpaste= function(e) {
         e.preventDefault();
-        alert("Esta prohibida la acción pegar");
+        alert("Esta prohibida la acción pegar.");
       };
       valorResultado.addEventListener("keypress",bloquear);
       diasMora.addEventListener("keypress",bloquear);
