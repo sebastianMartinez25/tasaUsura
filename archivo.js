@@ -36,14 +36,15 @@ const regex=/^[0-9]+$/;
 if(fechaUno.getTime()<=fechaDos.getTime() && regex.test(liquidar))
 {
     var diasM=(((fechaDos.getTime())-(fechaUno.getTime()))/milisegundos)+1;
-console.log(liquidar);
+//console.log(liquidar);
 var valorFinal=(liquidar*tasaDiaria*diasM);
 valorFinal=valorFinal.toFixed(0);
 
 //var mensajeFinal=document.createTextNode("El valor de los Intereses de Mora es de: " + valorFinal + ", para un total de " + diasM + " días en Mora.");
   
   //resultado.appendChild(mensajeFinal);
-  resultado.value=valorFinal;
+  var valorem=new Intl.NumberFormat('en-US').format(valorFinal);
+  resultado.value=valorem.replace(",",".");
   diasMora.value=diasM;
 }
 else
@@ -55,8 +56,6 @@ else
     resultado.value="";
     diasMora.value="";
 }
-     
-
     },
 getLista(){
     // id de la hoja de calculo
@@ -118,5 +117,42 @@ console.log(err);
 window.addEventListener("load",iniciar);
 function iniciar()
 {
+    var validarLiquidacion=document.getElementById("valorLiquidacion");
+    validarLiquidacion.addEventListener("keypress",validar);
+    var valorResultado=document.getElementById("valorResultado");
+    var diasMora=document.getElementById("diasMora");
+    
+    function validar(e)
+    {
+        const regex=/^[\d]+$/;    
+        var caracter=e.key; //.which;
+        if (regex.test(caracter))
+        {
+        //var numero=validarLiquidacion.length; 
+        }
+        else
+        {
+            e.preventDefault();   
+        }
+    };
 
+    validarLiquidacion.onpaste= function(e) {
+        e.preventDefault();
+        alert("Esta prohibida la acción pegar");
+      };
+      valorResultado.onpaste= function(e) {
+        e.preventDefault();
+        alert("Esta prohibida la acción pegar");
+      };
+      diasMora.onpaste= function(e) {
+        e.preventDefault();
+        alert("Esta prohibida la acción pegar");
+      };
+      valorResultado.addEventListener("keypress",bloquear);
+      diasMora.addEventListener("keypress",bloquear);
+      function bloquear(ev)
+      {
+        ev.preventDefault();
+        alert("Esta prohibida la acción escribir");
+      }
 }
