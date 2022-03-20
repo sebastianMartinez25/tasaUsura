@@ -43,8 +43,9 @@ valorFinal=valorFinal.toFixed(0);
 //var mensajeFinal=document.createTextNode("El valor de los Intereses de Mora es de: " + valorFinal + ", para un total de " + diasM + " días en Mora.");
   
   //resultado.appendChild(mensajeFinal);
-  var valorem=new Intl.NumberFormat('en-US').format(valorFinal);
-  resultado.value=valorem.replace(",",".");
+  var valorem=new Intl.NumberFormat('es-ES').format(valorFinal);
+  //valorem=valorem.replace(",",".");
+  resultado.value=valorem;
   diasMora.value=diasM;
 }
 else
