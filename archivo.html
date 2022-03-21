@@ -52,7 +52,7 @@
       background-color:#3eaeb1;
       color: #000000;
       font-family: arial;
-      font-size: 15px;
+      font-size: 19px;
     }
     td{
         margin:auto;
@@ -61,6 +61,23 @@
     th{
         margin:auto;
           text-align:center;
+    }
+    #fechaUno {
+      font-size: 20px;
+    }
+    #fechaDos {
+      font-size: 20px;
+    }
+    #valorLiquidacion {
+      font-size: 20px;
+    }
+    #diasMora {
+      font-size: 20px;
+      background-color:#ff8000;
+    }
+    #valorResultado {
+      font-size: 20px;
+      background-color:#ff8000;
     }
   </style>
 </head>
@@ -79,7 +96,7 @@
                 <th>Fecha<br>Final</br>
                   <input type="date" id="fechaDos"></input>
                     <th>
-                  <th>Valor a<br>Liquidar</br><input type="text" id="valorLiquidacion" style="width:180px; height:15px;"></input></th>
+                  <th>Valor a<br>Liquidar</br><input type="text" id="valorLiquidacion" style="width:180px; height:25px;"></input></th>
             
                       <th><br>Liquidar</br><input type="button" id="boton" value="LIQUIDAR"v-on:click="liquidacion"></input>
                       </th> 
@@ -89,10 +106,10 @@
                   
                 <tr>
                   <p id="resultado">
-                    El valor de los Intereses de Mora es de: $<input type="text" style="width:180px ; height:18px" id="valorResultado"></input>
+                    El valor de los Intereses de Mora es de: $<input type="text" style="width:180px ; height:25px" id="valorResultado"></input>
                   </p>
                   <p id="resultadoMora">
-                    Total días en Mora:<input type="text" style="width:80px ; height:15px" id="diasMora"></input>
+                    Total días en Mora:<input type="text" style="width:80px ; height:25px" id="diasMora"></input>
                   </p>
                 </tr>
         </theader>

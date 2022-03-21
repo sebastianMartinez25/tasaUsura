@@ -32,6 +32,12 @@ var resultado=document.getElementById("valorResultado");
 var diasMora=document.getElementById("diasMora");
 valorLiquidacion=document.getElementById("valorLiquidacion");
 var liquidar=(valorLiquidacion.value);
+
+if(liquidar.indexOf(".")!=-1)
+{
+  liquidar=liquidar.split(".").join("");
+}
+
 const regex=/^[0-9]+$/;
 if(fechaUno.getTime()<=fechaDos.getTime() && regex.test(liquidar))
 {
@@ -43,8 +49,9 @@ valorFinal=valorFinal.toFixed(0);
 //var mensajeFinal=document.createTextNode("El valor de los Intereses de Mora es de: " + valorFinal + ", para un total de " + diasM + " días en Mora.");
   
   //resultado.appendChild(mensajeFinal);
-  var valorem=new Intl.NumberFormat('es-ES').format(valorFinal);
-  //valorem=valorem.replace(",",".");
+  var valorem=new Intl.NumberFormat('en-EN').format(valorFinal);
+  valorem=valorem.replace(/,/g,".");
+  
   resultado.value=valorem;
   diasMora.value=diasM;
 }
@@ -122,20 +129,28 @@ function iniciar()
     validarLiquidacion.addEventListener("keypress",validar);
     var valorResultado=document.getElementById("valorResultado");
     var diasMora=document.getElementById("diasMora");
-    
+    var entrada=[];
     function validar(e)
     {
         const regex=/^[\d]+$/;    
         var caracter=e.key; //.which;
         if (regex.test(caracter))
-        {
-        //var numero=validarLiquidacion.length; 
+        {    
+        
         }
         else
         {
             e.preventDefault();   
         }
     };
+validarLiquidacion.addEventListener("keyup",validarUp);
+function validarUp(e)
+{
+  entrada=validarLiquidacion.value.split(".").join("");
+  var valorcito=new Intl.NumberFormat('en-EN').format(entrada);
+  valorcito=valorcito.replace(/,/g,".");
+  validarLiquidacion.value=valorcito;
+}
 
     validarLiquidacion.onpaste= function(e) {
         e.preventDefault();
